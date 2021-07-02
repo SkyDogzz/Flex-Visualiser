@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex visualiser</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+    <h1>Flex visualiser</h1>
+    <div id="visu">
+
+    </div>
+    <div id="menu">
+        <div id="size">
+            <h2>Taille</h2>
+            <div>
+                <h3>Hauteur visu</h3>
+                <div>
+                    <input type="range" oninput="visuWidthChange()" id="width-visu-input" name="width-visu-input"
+                        min="500" max="1500" value="500">
+                    <label id="visu-width" for="width-visu-input">500</label>
+                </div>
+            </div>
+            <div>
+                <h3>Nombre item</h3>
+                <div>
+                    <input type="range" oninput="itemNumberChange()" id="nbr-item" name="nbr-item" min="3" max="50"
+                        value="5">
+                    <label id="nbr-of-item" for="height">5</label>
+                </div>
+            </div>
+            <div>
+                <h3>Largeur item</h3>
+                <div>
+                    <input type="range" oninput="itemWidthChange()" id="width" name="width" min="100" max="500"
+                        value="300">
+                    <label id="item-width" for="width">300</label>
+                </div>
+            </div>
+            <div>
+                <h3>Hauteur item</h3>
+                <div>
+                    <input type="range" oninput="itemHeightChange()" id="height" name="height" min="100" max="500"
+                        value="200">
+                    <label id="item-height" for="height">200</label>
+                </div>
+            </div>
+        </div>
+        <div id="parent-option">
+            <h2>Option</h2>
+            <div>
+                <div>
+                    <h3>Flex direction</h3>
+                    <div>
+                        <input type="radio" onclick="flexDirection('row')" name="flex-direction" id="flex-direction-row"
+                            checked>
+                        <label for="flex-direction-row">Row</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="flexDirection('column')" name="flex-direction"
+                            id="flex-direction-column">
+                        <label for="flex-direction-column">Column</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="flexDirection('row-reverse')" name="flex-direction"
+                            id="flex-direction-row-reverse">
+                        <label for="flex-direction-row-reverse">Row reverse</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="flexDirection('column-reverse')" name="flex-direction"
+                            id="flex-direction-column-reverse">
+                        <label for="flex-direction-column-reverse">Column reverse</label>
+                    </div>
+                </div>
+                <div>
+                    <h3>Flex wrap</h3>
+                    <div>
+                        <input type="radio" onclick="flexWrap('nowrap')" name="flex-wrap" id="flex-wrap-no-wrap"
+                            checked>
+                        <label for="flex-wrap-no-wrap">No wrap</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="flexWrap('wrap')" name="flex-wrap" id="flex-wrap-wrap">
+                        <label for="flex-wrap-wrap">Wrap</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="flexWrap('wrap-reverse')" name="flex-wrap"
+                            id="flex-wrap-wrap-reverse">
+                        <label for="flex-wrap-wrap-reverse">Wrap reverse</label>
+                    </div>
+                </div>
+                <div>
+                    <h3>Justify content</h3>
+                    <div>
+                        <input type="radio" onclick="justifyContent('flex-start')" name="justify-content"
+                            id="justify-content-flex-start" checked>
+                        <label for="justify-content-flex-start">Flex start</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('flex-end')" name="justify-content"
+                            id="justify-content-flex-end">
+                        <label for="justify-content-flex-end">Flex end</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('center')" name="justify-content"
+                            id="justify-content-center">
+                        <label for="justify-content-center">Center</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('space-between')" name="justify-content"
+                            id="justify-content-space-between">
+                        <label for="justify-content-space-between">Space between</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('space-around')" name="justify-content"
+                            id="justify-content-space-around">
+                        <label for="justify-content-space-around">Space around</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('space-evenly')" name="justify-content"
+                            id="justify-content-space-evenly">
+                        <label for="justify-content-space-evenly">Space evenly</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('start')" name="justify-content"
+                            id="justify-content-start">
+                        <label for="justify-content-start">Start</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('end')" name="justify-content"
+                            id="justify-content-end">
+                        <label for="justify-content-end">End</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('left')" name="justify-content"
+                            id="justify-content-left">
+                        <label for="justify-content-left">Left</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="justifyContent('right')" name="justify-content"
+                            id="justify-content-right">
+                        <label for="justify-content-right">Right</label>
+                    </div>
+                </div>
+                <div>
+                    <h3>Align items</h3>
+                    <div>
+                        <input type="radio" onclick="alignItems('stretch')" name="align-items" id="align-items-stretch"
+                            checked>
+                        <label for="align-items-stretch">Stretch</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignItems('flex-start')" name="align-items"
+                            id="align-items-flex-start">
+                        <label for="align-items-flex-start">Flex start</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignItems('flex-end')" name="align-items"
+                            id="align-items-flex-end">
+                        <label for="align-items-flex-end">Flex end</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignItems('center')" name="align-items" id="align-items-center">
+                        <label for="align-items-center">Center</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignItems('baseline')" name="align-items"
+                            id="align-items-baseline">
+                        <label for="align-items-baseline">Baseline</label>
+                    </div>
+                </div>
+                <div>
+                    <h3>Align content</h3>
+                    <div>
+                        <input type="radio" onclick="alignContent('normal')" name="align-content"
+                            id="align-content-normal" checked>
+                        <label for="align-content-normal">Normal</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('flex-start')" name="align-content"
+                            id="align-content-flex-start">
+                        <label for="align-content-flex-start">Flex start</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('flex-end')" name="align-content"
+                            id="align-content-flex-end">
+                        <label for="align-content-flex-end">Flex end</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('center')" name="align-content"
+                            id="align-content-center">
+                        <label for="align-content-center">Center</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('space-between')" name="align-content"
+                            id="align-content-space-between">
+                        <label for="align-content-space-between">Space betwwen</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('space-around')" name="align-content"
+                            id="align-content-space-around">
+                        <label for="align-content-space-around">Space around</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('space-evenly')" name="align-content"
+                            id="align-content-space-evenly">
+                        <label for="align-content-space-evenly">Space evenly</label>
+                    </div>
+                    <div>
+                        <input type="radio" onclick="alignContent('stretch')" name="align-content"
+                            id="align-content-stretch">
+                        <label for="align-content-stretch">Stretch</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="code">
+            <button onclick="genererCode()">Gérérer code</button>
+            <div></div>
+        </div>
+    </div>
+</body>
+
+</html>

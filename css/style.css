@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: lightblue;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.item {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    resize: both;
+    overflow: overlay;
+}
+
+#visu {
+    display: flex;
+    border: 1px solid black;
+    height: 500px
+}
+
+#menu {
+    display: flex;
+    justify-content: center;
+}
+
+#menu>div {
+    margin: 10px
+}
+
+#parent-option>div {
+    display: flex;
+}
+
+#parent-option>div>div {
+    margin: 10px
+}
